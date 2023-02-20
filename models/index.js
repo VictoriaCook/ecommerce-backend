@@ -11,7 +11,7 @@ Product.belongsTo(Category, {
 
 // Categories have many Products
 Category.hasMany(Product, {
-  foreignKey: 'product_id', // is this foreign key correct? should it be the id of the product model?
+  foreignKey: 'category_id', // is this foreign key correct? should it be the id of the product model? // reference to something that's a primary key in another model
 });
 
 // Products belongToMany Tags (through ProductTag)
