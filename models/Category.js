@@ -11,7 +11,8 @@ Category.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false
+      allowNull: false,
+      onDelete: 'CASCADE'
     },
     category_name: {
       type: DataTypes.STRING,
