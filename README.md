@@ -1,1 +1,29 @@
-# E-commerce Back End Starter Code
+# E-commerce Back End
+
+## How this works
+
+This is the back end for an e-commerce site, using an Express.js API configured to use Sequelize to interact with a MySQL database. Functionality includes all CRUD operations.
+
+## Technologies
+
+- Node.js
+- Express.js
+- MySQL2
+- Sequelize
+- dotenv
+- Insomnia
+
+## Installation
+
+To start the application, please complete the following steps:
+
+1. Run npm install
+2. Create database and seed data 
+3. Run npm start to start the application
+4. Test API routes using Insomnia (or other API development platform of your choice)
+
+## Video walkthrough
+
+A video demonstrating this app's functionality is here: TBC
+
+---
