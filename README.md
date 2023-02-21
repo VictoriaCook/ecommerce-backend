@@ -25,6 +25,6 @@ To start the application, please complete the following steps:
 
 ## Video walkthrough
 
-A video demonstrating this app's functionality is here: TBC
+A video demonstrating this app's functionality is [here](https://watch.screencastify.com/v/KiuAM3UqTiX7nWSWexnJ)
 
 ---
