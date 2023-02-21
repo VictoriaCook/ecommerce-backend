@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
   // console.log(req.params.id)
   try {
-    let item = await Product.findOne({
+    let singleProduct = await Product.findOne({
       where: {
         id: req.params.id,
       },
@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
         },
       ],
     })
-    res.json(item);
+    res.json(singleProduct);
   } catch (err) {
     res.status(500).json(err);
   }
