@@ -2,7 +2,7 @@
 
 ## How this works
 
-This is the back end for an e-commerce site, using an Express.js API configured to use Sequelize to interact with a MySQL database. Functionality includes all CRUD operations.
+This is the back end for an e-commerce site, using an Express.js API configured to use Sequelize to interact with a MySQL database. Functionality includes all REST(ful) CRUD operations.
 
 ## Technologies
 
@@ -18,9 +18,10 @@ This is the back end for an e-commerce site, using an Express.js API configured 
 To start the application, please complete the following steps:
 
 1. Run npm install
-2. Create database and seed data 
-3. Run npm start to start the application
-4. Test API routes using Insomnia (or other API development platform of your choice)
+2. Input your MySQL details into the .env.EXAMPLE file and remove .EXAMPLE from the file name
+3. Create database and seed data 
+4. Run npm start to start the application
+5. Test API routes using Insomnia (or other API development platform of your choice)
 
 ## Video walkthrough
 
