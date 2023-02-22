@@ -64,21 +64,33 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
   try {
-    let deleteCategory = await Category.destroy({
+    // get name of category before deleting
+    const category = await Category.findOne({
+      attributes: ['category_name'],
       where: {
         id: req.params.id,
-      },
+      }
     });
-    res.status(200).json({ message: 'Category deleted successfully!' , deleteCategory})
+    const categoryName = category.getDataValue('category_name');
+    
+    // if categoryname is null, return 404, else delete
+    if (categoryName === null) {
+      return res.status(404).json({ message: 'Oops, no category found with this ID! Try another ID' });
+    } else {
+      let deleteCategory = await Category.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.status(200).json({ message: `${categoryName} category deleted successfully!` });
+    }
   }
   catch (err) {
-    res.status(404).json({ message: 'Oops, no category found with this ID! Try another ID' })
-    res.status(500).json(err);
+    res.status(500).json(err); 
   }
-  
 });
 
 module.exports = router;
