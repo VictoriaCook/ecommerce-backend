@@ -117,19 +117,47 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
-  let deleteProduct = await Product.destroy({
-    where: {
-      id: req.params.id,
+  try {
+    // get name of product before deleting
+    const getProduct = await Product.findOne({
+      attributes: ['product_name'],
+      where: {
+        id: req.params.id,
+      }
+    });
+    const productName = getProduct.getDataValue('product_name');
+    
+    // if productName is null, return 404, else delete
+    if (productName === null) {
+      return res.status(404).json({ message: 'Oops, no product found with this ID! Try another ID' });
+    } else {
+      let deleteProduct = await Product.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.status(200).json({ message: `${productName} deleted successfully!` });
     }
-  });
-
-  if (!deleteProduct) {
-    return res.status(404).json({ message: 'Oops, no product found with this ID! Try another ID' });
-  } else {
-    res.status(200).json({ message: 'Product deleted successfully!' })
   }
-
+  catch (err) {
+    res.status(500).json(err); 
+  }
 });
+
+// router.delete('/:id', async (req, res) => {
+//   // delete one product by its `id` value
+//   let deleteProduct = await Product.destroy({
+//     where: {
+//       id: req.params.id,
+//     }
+//   });
+
+//   if (!deleteProduct) {
+//     return res.status(404).json({ message: 'Oops, no product found with this ID! Try another ID' });
+//   } else {
+//     res.status(200).json({ message: 'Product deleted successfully!' })
+//   }
+
+// });
 
 module.exports = router;

@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
     });
     const categoryName = category.getDataValue('category_name');
     
-    // if categoryname is null, return 404, else delete
+    // if categoryName is null, return 404, else delete
     if (categoryName === null) {
       return res.status(404).json({ message: 'Oops, no category found with this ID! Try another ID' });
     } else {
