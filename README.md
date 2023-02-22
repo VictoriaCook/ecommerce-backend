@@ -1,4 +1,4 @@
-# E-commerce Back End
+# E-Commerce Back End
 
 ## How this works
 
